@@ -13,10 +13,7 @@
 				"message" => $message,
 				"view_type" => 0
 			);
-			if ($notificationType != null) {
-				$params['notification_type'] = $notificationType;
-			}
-			return $this->sendRequest($params);
+			return $this->sendRequest($params, $notificationType);
 		}
 
 		public function sendArticle($message, $article,$notificationType = null) {
@@ -25,10 +22,7 @@
 				"view_type" => 0,
 				"article" => $article
 			);
-			if ($notificationType != null) {
-				$params['notification_type'] = $notificationType;
-			}
-			return $this->sendRequest($params);
+			return $this->sendRequest($params,$notificationType);
 		}
 
 		public function sendImage($message, $image,$notificationType = null) {
@@ -37,10 +31,7 @@
 				"view_type" => 0,
 				"image" => $image
 			);
-			if ($notificationType != null) {
-				$params['notification_type'] = $notificationType;
-			}
-			return $this->sendRequest($params);
+			return $this->sendRequest($params,$notificationType);
 		}
 		public function sendArticleAndImage($message, $article,$image,$notificationType = null) {
 			$params = array(
@@ -49,10 +40,7 @@
 				"article" => $article,
 				"image" => $image
 			);
-			if ($notificationType != null) {
-				$params['notification_type'] = $notificationType;
-			}
-			return $this->sendRequest($params);
+			return $this->sendRequest($params,$notificationType);
 		}
 
 		public function sendUrl($message,$url,$notificationType = null) {
@@ -61,10 +49,7 @@
 				"view_type" => 1,
 				"url" => $url
 			);
-			if ($notificationType != null) {
-				$params['notification_type'] = $notificationType;
-			}
-			return $this->sendRequest($params);
+			return $this->sendRequest($params,$notificationType);
 		}
 
 		public function sendLocation($message,$longitude,$latitude,$notificationType = null) {
@@ -74,13 +59,13 @@
 				"longitude" => $longitude,
 				"latitude" => $latitude
 			);
+			return $this->sendRequest($params,$notificationType);
+		}
+
+		private function sendRequest($params,$notificationType = null) {
 			if ($notificationType != null) {
 				$params['notification_type'] = $notificationType;
 			}
-			return $this->sendRequest($params);
-		}
-
-		private function sendRequest($params) {
 			if (empty($this->config)) {
 				throw new Exception("Missing connection credentials", 1);
 			}
