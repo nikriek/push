@@ -121,7 +121,7 @@
 	));
 
 	try {
-		$push->sendMessage(
+		$push->sendArticleAndImage(
 			"Message sent",
 			"http://press.push.co/70303-ifttt-and-push-co-a-match-made-in-heaven",
 			"https://d21buns5ku92am.cloudfront.net/38491/images/107905-d8ddae8e-db73-41b7-a460-73667dc1c703-iphone5screen5-1-large-1378978123.PNG");
