@@ -2,7 +2,7 @@
 	class PushCo {
 		private $config = array();
 
-		const apiUrl = 'https://api.push.co/1.0/push';
+		const API_URL = 'https://api.push.co/1.0/push';
 
 		public function __construct($configArray) {
 			$this->config = $configArray;
@@ -79,7 +79,7 @@
 
 	   		$post = curl_init();
 
-	   		curl_setopt($post, CURLOPT_URL, self::apiUrl);
+	   		curl_setopt($post, CURLOPT_URL, self::API_URL);
 	   		curl_setopt($post, CURLOPT_POST, count($data));
 	   		curl_setopt($post, CURLOPT_POSTFIELDS, $fields);
 	   		curl_setopt($post, CURLOPT_RETURNTRANSFER, 1);
