@@ -5,44 +5,88 @@
 	* The PushCo class is a wrapper for Push.co's API, which can POST notifications to their iPhone-App
 	*/
 	class PushCo {
+
+		// Stores configuration/connection information
 		private $config = array();
 
+		//URL for REST API
 		const API_URL = 'https://api.push.co/1.0/push';
 
 		/**
 		* The constructor needs an assoziative array with your app's API-Key and -Secret
 		*
-		* @param configuration array
+		* @param Array configArray configuration array
 		*/
 		public function __construct($configArray) {
 			$this->config = $configArray;
 		}
 
+		/**
+		* A function to send a basic message
+		* notification type ist optional
+		*
+		* @param String message message to send
+		* @param String notificationType optional notification type
+		*
+		* @throws Exception exception for any kind of error (e.g. connection or credentials)
+		*/
 		public function sendMessage($message,$notificationType = null) {
 			$params = array(
 				"message" => $message,
 				"view_type" => 0
 			);
-			return $this->sendRequest($params, $notificationType);
+			$this->sendRequest($params, $notificationType);
 		}
 
+		/**
+		* A function to send not only a basic message but also some longer text
+		* notification type ist optional
+		*
+		* @param String message message to send
+		* @param String article some longer text to send
+		* @param String notificationType optional notification type
+		*
+		* @throws Exception exception for any kind of error (e.g. connection or credentials)
+		*/
 		public function sendArticle($message, $article,$notificationType = null) {
 			$params = array(
 				"message" => $message,
 				"view_type" => 0,
 				"article" => $article
 			);
-			return $this->sendRequest($params,$notificationType);
+			$this->sendRequest($params,$notificationType);
 		}
 
+		/**
+		* A function to send not only a basic message but also a link to an image
+		* notification type ist optional
+		*
+		* @param String message message to send
+		* @param String image link to an image
+		* @param String notificationType optional notification type
+		*
+		* @throws Exception exception for any kind of error (e.g. connection or credentials)
+		*/
 		public function sendImage($message, $image,$notificationType = null) {
 			$params = array(
 				"message" => $message,
 				"view_type" => 0,
 				"image" => $image
 			);
-			return $this->sendRequest($params,$notificationType);
+			$this->sendRequest($params,$notificationType);
 		}
+
+		/**
+		* A function to send not only a basic message but also a link to an image along with some more text
+		* notification type ist optional
+		*
+		* @param String message message to send
+		* @param String article some longer text to send
+		* @param String image link to an image
+		* @param String notificationType optional notification type
+		*
+		* @throws Exception exception for any kind of error (e.g. connection or credentials)
+		*/
 		public function sendArticleAndImage($message, $article,$image,$notificationType = null) {
 			$params = array(
 				"message" => $message,
@@ -50,18 +94,39 @@
 				"article" => $article,
 				"image" => $image
 			);
-			return $this->sendRequest($params,$notificationType);
+			$this->sendRequest($params,$notificationType);
 		}
 
+		/**
+		* A function to send a message along with an url
+		* notification type ist optional
+		*
+		* @param String message message to send
+		* @param String url link to an website
+		* @param String notificationType optional notification type
+		*
+		* @throws Exception exception for any kind of error (e.g. connection or credentials)
+		*/
 		public function sendUrl($message,$url,$notificationType = null) {
 			$params = array(
 				"message" => $message,
 				"view_type" => 1,
 				"url" => $url
 			);
-			return $this->sendRequest($params,$notificationType);
+			$this->sendRequest($params,$notificationType);
 		}
 
+		/**
+		* A function to send a message along with location information
+		* notification type ist optional
+		*
+		* @param String message message to send
+		* @param Integer longitude the location's longitude
+		* @param Integer latitude the location's latitude
+		* @param String notificationType optional notification type
+		*
+		* @throws Exception exception for any kind of error (e.g. connection or credentials)
+		*/
 		public function sendLocation($message,$longitude,$latitude,$notificationType = null) {
 			$params = array(
 				"message" => $message,
@@ -69,9 +134,18 @@
 				"longitude" => $longitude,
 				"latitude" => $latitude
 			);
-			return $this->sendRequest($params,$notificationType);
+			$this->sendRequest($params,$notificationType);
 		}
 
+		/**
+		* Main function to send POST requests via curl
+		* notification type ist optional
+		*
+		* @param Array params parameters like message
+		* @param String notificationType optional notification type
+		*
+		* @throws Exception exception for any kind of error (e.g. connection or credentials)
+		*/
 		private function sendRequest($params,$notificationType = null) {
 			//An empty config array throws an exception
 			if (empty($this->config)) {
