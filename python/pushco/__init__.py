@@ -5,14 +5,24 @@ import urllib
 import urllib2
 
 class PushCo(object):
-	"""docstring for PushCo"""
+	"""
+		PushCo is a wrapper for push.co's API, which can send 
+		push notifications to your phone 
+	"""
 
 	API_URL = "https://api.push.co/1.0/push"
-	
+
+	"""
+		Connection object constructor
+		config dictionary needs 'api_key' and 'api_secret'
+	"""
 	def __init__(self, config):
 		super(PushCo, self).__init__()
 		self.config = config
 
+	"""
+		Manages the POST request
+	"""
 	def __sendRequest(self,params,notificationType=None):
 		if self.config == None:
 			raise Exception("Configuration data is missing.")
@@ -29,7 +39,9 @@ class PushCo(object):
 				raise Exception("You are not authorized.")
 			else:
 				raise Exception("Unkown error")
-			
+	"""
+		A function to send a basic message
+	"""
 	def sendMessage(self,message,notificationType=None):
 		params = {
 			"message": message,
