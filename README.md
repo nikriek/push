@@ -4,17 +4,41 @@ PushCo
 PushCo is a wrapper for [Push.co](http://push.co/)'s API. For now, the class only supports ["Post notifications"](http://push.co/api/push) for a specific "Push App". 
 
 ## How to use
-At first I created the wrapper in PHP. Other languages will follow.
+The PushCo currently only exists in PHP and Python. I will add more languages in the future.
+
 All folders consist of two files:
 
 * `push.EXTENSION` – Libray
 * `example.EXTENSION` – Example
 
+<<<<<<< HEAD
 The code should be self-explaining.
 
 ##Example
 ![Console](console.png)
 ![iPhone](iphone.png)
 
+=======
+>>>>>>> 1ab29f6221597ac6c8887cea0f92365ac030d3cc
 ## License
-No license of course. Feel free to use it anywhere you want. But a short message is appreciated!
+The MIT License (MIT)
+
+Copyright (c) 2014 Niklas Riekenbrauck
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
