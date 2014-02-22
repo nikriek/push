@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import sys
 from pushco import PushCo
 
 def main():
   	config = {
-  		"api_secret" : "api_secret",
-  		"api_key" : "api_key"
+  		"api_secret" : "YOUR_API_SECRET_HERE",
+  		"api_key" : "YOUR_API_KEY_HERE"
   	}
   	push = PushCo(config)
-  	push.sendUrl("Url","https://google.de")
-  	print 'Notification successfully pushed!'
+  	push.sendMessage(sys.argv[1])
+  	print 'Notification has been successfully pushed!'
 
 if __name__ == "__main__":
   main()

@@ -12,5 +12,9 @@ All folders consist of two files:
 
 The code should be self-explaining.
 
+##Example
+![Console](console.png)
+![iPhone](iphone.png)
+
 ## License
 No license of course. Feel free to use it anywhere you want. But a short message is appreciated!
