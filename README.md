@@ -11,15 +11,10 @@ All folders consist of two files:
 * `push.EXTENSION` – Libray
 * `example.EXTENSION` – Example
 
-<<<<<<< HEAD
-The code should be self-explaining.
-
 ##Example
 ![Console](console.png)
 ![iPhone](iphone.png)
 
-=======
->>>>>>> 1ab29f6221597ac6c8887cea0f92365ac030d3cc
 ## License
 The MIT License (MIT)
 
