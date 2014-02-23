@@ -35,13 +35,7 @@ class PushCo(object):
 		params.update(self.config)
 		data = urllib.urlencode(params)
 		req = urllib2.Request(self.API_URL, data)
-		try:
-			response = urllib2.urlopen(req)
-		except urllib2.HTTPError, e:
-			if e.code == 401:
-				raise Exception("You are not authorized.")
-			else:
-				raise Exception("Unkown error")
+		urllib2.urlopen(req)
 	
 	def sendMessage(self,message,notificationType=None):
 		"""

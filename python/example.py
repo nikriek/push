@@ -9,8 +9,11 @@ def main():
   		"api_key" : "YOUR_API_KEY_HERE"
   	}
   	push = PushCo(config)
-  	push.sendMessage(sys.argv[1])
-  	print 'Notification has been successfully pushed!'
+  	try:
+  		push.sendMessage(sys.argv[1])
+  		print 'Notification has been successfully pushed!'
+  	except Exception, e:
+  		print 'Error'
 
 if __name__ == "__main__":
   main()
